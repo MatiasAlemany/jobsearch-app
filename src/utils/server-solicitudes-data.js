@@ -1,9 +1,10 @@
-import { redirect } from "next/dist/server/api-utils";
 import { serverValidateAuth } from "../utils/server-validate-auth";
 import prisma from "@/app/db";
+import { redirect } from "next/navigation";
 
 export async function getSolicitudesData() {
   const user = await serverValidateAuth();
+  console.log("USUARIO", user)
 
   if (!user) {
     redirect("/api/auth/signin");

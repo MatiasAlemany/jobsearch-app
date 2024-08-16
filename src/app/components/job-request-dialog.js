@@ -12,10 +12,11 @@ import { useToast } from "@/components/ui/use-toast";
 import { useSession } from "next-auth/react";
 
 export function JobRequestDialog({ offer, userAppliedOffersIds }) {
-  const {data:session} = useSession();
+  const { data: session } = useSession();
   const { toast } = useToast();
   const router = useRouter();
   const userAlreadyApplied = userAppliedOffersIds.includes(offer.id);
+  console.log("userAlreadyApplied", userAlreadyApplied)
 
   function requestJob() {
     if (!session) {
@@ -86,11 +87,7 @@ export function JobRequestDialog({ offer, userAppliedOffersIds }) {
           onClick={requestJob}
           disabled={!session || userAlreadyApplied}
         >
-          {!session
-            ? "Inicia sesión para aplicar"
-            : userAlreadyApplied
-            ? "Ya aplicaste a esta oferta"
-            : "Aplicar a oferta"}
+          {!session ? "Inicia sesión para aplicar" : userAlreadyApplied}
         </button>
       </DialogContent>
     </Dialog>

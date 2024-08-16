@@ -35,7 +35,7 @@ export function OfferUpdateForm({companies}) {
       </BaseSelect>
 
       <BaseSelect name="contract" label="Tipo de contrato">
-        <option value="indefinite">Indefinido</option>
+        <option value="indefinite">Permanente</option>
         <option value="fixed">Temporal</option>
         <option value="formation">Prácticas</option>
       </BaseSelect>

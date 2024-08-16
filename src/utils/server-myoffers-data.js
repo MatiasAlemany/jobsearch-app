@@ -1,4 +1,4 @@
-import { redirect } from "next/dist/server/api-utils";
+import { redirect } from "next/navigation";
 import { serverValidateAuth } from "../utils/server-validate-auth";
 import prisma from "@/app/db";
 
@@ -6,18 +6,25 @@ export async function getMyOffersData() {
   const user = await serverValidateAuth();
 
   if (!user) {
-    redirect("/api/auth/signin");
-    return
+   return redirect("/api/auth/signin");
   }
 
-  const myOffers = await prisma.user.findUnique({
+  // Buscar todas las empresas asociadas al usuario y obtener sus ofertas de trabajo
+  const companies = await prisma.company.findMany({
     where: {
-      id: user.id
+      userId: user.id,
     },
     include: {
-        requestedJobs: true,
+      JobOffer: true, // Incluir las ofertas de trabajo asociadas a cada empresa
     }
   });
 
-  return {myOffers:myOffers.requestedJobs};
+  const myOffers = companies.flatMap(company =>
+    company.JobOffer.map(offer => ({
+      ...offer,
+      companyName: company.name, // Agregamos el nombre de la empresa a cada oferta
+    }))
+  );
+
+  return {myOffers};
 }

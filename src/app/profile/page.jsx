@@ -4,6 +4,7 @@ import { CompaniesProfile } from "../components/companies-profile";
 
 export default async function Profile() {
   const { userInfo } = await getProfileData();
+  console.log("UserInfo", userInfo)
 
   return (
     <div>

@@ -39,13 +39,18 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ////////
 Next tasks:
-Resolver aplicacion a ofertas de trabajo cuando se esta logueado de otro usuario.
 Resolver estilos pagina "Mi Perfil"
-Luego de enviar formulario de datos de "http://localhost:3000/profile-update" llevar a pagina "http://localhost:3000/profile"
-En "http://localhost:3000/experience-update" Fecha de fin hay que darle opcion de "Actualidad"
-Resolver boton de aplicar a trabajo.
+Marshalito:
+Ofertas inicio hacer clickeable titulo e imagen o todo.
+"Ver Detalles" RESALTARLO (+Color o Boton)
+Si no da resultado el formulario de busqueda, avisar que no se encontraron ofertas.
+
 
 TERMINADAS:
 Deploy. -> BASE DE DATOS TERMINADA.
 Resolver pagina Mis Solicitudes. Cuando no se esta logueado muestra solicitudes igual.
 Resolver horarios de trabajo y tipo de contrato en las ofertas de pagina principal.
+Resolver boton de aplicar a trabajo cuando se esta logueado de otro usuario. --> Chekear con marshal.
+Resolver aplicacion a ofertas de trabajo cuando se esta logueado de otro usuario.  --> Chekear con marshal.
+En "Mis Ofertas" agregar boton para eliminar oferta.
+

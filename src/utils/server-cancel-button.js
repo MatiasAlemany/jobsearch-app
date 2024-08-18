@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { serverValidateAuth } from "../utils/server-validate-auth";
 
 export async function cancelButtonOffer() {
-  const user = serverValidateAuth();
+  const user = await serverValidateAuth();
 
   if (!user) {
     redirect("api/auth/signin")
@@ -21,6 +21,8 @@ export async function cancelButtonOffer() {
       id: true,
     },
   });
+
+  console.log("USUARIOS QUE APLICARON:", userAppliedOffers )
 
   const userAppliedOffersIds = userAppliedOffers.map((offer) => offer.id);
 

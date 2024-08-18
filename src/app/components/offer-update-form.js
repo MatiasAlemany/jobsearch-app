@@ -22,11 +22,11 @@ export function OfferUpdateForm({companies}) {
       />
 
       <BaseSelect name="companyId" label="Empresa Asociada">
-        {companies.map((company) => (
+        {companies ? companies.map((company) => (
           <option key={company.id} value={company.id}>
             {company.name}
-          </option>
-        ))}
+          </option> 
+        )) : <p>Debes crear una empresa</p>}
       </BaseSelect>
 
       <BaseSelect name="workTime" label="Tipo de Jornada">

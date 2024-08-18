@@ -14,7 +14,12 @@ export function ExperienceUpdateForm() {
     <UpdateForm title="Crea una nueva experiencia laboral" onSubmit={onSubmit}>
       <BaseInput label="Nombre de la empresa" name="companyName" required />
 
-      <BaseInput label="Puesto Desempeñado" name="role" minLength={3} required />
+      <BaseInput
+        label="Puesto Desempeñado"
+        name="role"
+        minLength={3}
+        required
+      />
 
       <BaseInput
         label="Fecha de inicio"
@@ -24,7 +29,7 @@ export function ExperienceUpdateForm() {
       />
 
       <BaseInput label="Fecha de fin" name="endDate" type="date" required />
-
+      
       <BaseSubmit value="Añadir experiencia" />
     </UpdateForm>
   );

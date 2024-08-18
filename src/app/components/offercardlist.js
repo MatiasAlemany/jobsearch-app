@@ -29,6 +29,7 @@ export async function OfferCardList() {
                   description={offer.description}
                   province={offer.province}
                   companyName={offer.companyName}
+                  id={offer.id}
                 />
                 )}
                 

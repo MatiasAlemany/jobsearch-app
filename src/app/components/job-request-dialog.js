@@ -11,12 +11,23 @@ import {
 import { useToast } from "@/components/ui/use-toast";
 import { useSession } from "next-auth/react";
 
+const workTimeLabels = {
+  fullTime: "Full-Time",
+  partTime: "Part-Time",
+};
+
+const contractTypeLabels = {
+  indefinite: "Permanent",
+  fixed: "Fixed-Term",
+  formation: "Training",
+};
+
 export function JobRequestDialog({ offer, userAppliedOffersIds }) {
   const { data: session } = useSession();
   const { toast } = useToast();
   const router = useRouter();
   const userAlreadyApplied = userAppliedOffersIds.includes(offer.id);
-  console.log("userAlreadyApplied", userAlreadyApplied)
+  console.log("userAlreadyApplied", userAlreadyApplied);
 
   function requestJob() {
     if (!session) {
@@ -76,9 +87,13 @@ export function JobRequestDialog({ offer, userAppliedOffersIds }) {
           <p>Salario:</p>
           <DialogDescription>{offer.salary}</DialogDescription>
           <p>Tipo de contrato</p>
-          <DialogDescription>{offer.contract}</DialogDescription>
+          <DialogDescription>
+            {contractTypeLabels[offer.contract]}
+          </DialogDescription>
           <p>Tipo de jornada</p>
-          <DialogDescription>{offer.workTime}</DialogDescription>
+          <DialogDescription>
+            {workTimeLabels[offer.workTime]}
+          </DialogDescription>
           <p>Ubicacion</p>
           <DialogDescription>{offer.province}</DialogDescription>
         </DialogHeader>
@@ -87,7 +102,11 @@ export function JobRequestDialog({ offer, userAppliedOffersIds }) {
           onClick={requestJob}
           disabled={!session || userAlreadyApplied}
         >
-          {!session ? "Inicia sesión para aplicar" : userAlreadyApplied}
+          {!session
+            ? "Inicia sesión para aplicar"
+            : userAlreadyApplied
+            ? "Ya aplicaste a esta solicitud"
+            : "Aplicar a esta oferta"}
         </button>
       </DialogContent>
     </Dialog>

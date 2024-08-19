@@ -20,24 +20,21 @@ export default async function Profile() {
                   href="/profile-update"
                 >
                   <h2 className="mt-4 text-lg font-semibold">
-                    {userInfo.customName}
+                    {userInfo.customName + " " + userInfo.customSecondName}
                   </h2>
-                  {userInfo.customSecondName && (
-                    <p className="text-zinc-400">{userInfo.customSecondName}</p>
-                  )}
                   {userInfo.birthdate && (
-                    <p className="text-zinc-400">
+                    <p className="text-zinc-600">
                       {new Date(userInfo.birthdate).toLocaleDateString()}
                     </p>
                   )}
                   {userInfo.province && (
-                    <p className="text-zinc-400">{userInfo.province}</p>
+                    <p className="text-zinc-600">{userInfo.province}</p>
                   )}
                   {userInfo.address && (
-                    <p className="text-zinc-400">{userInfo.address}</p>
+                    <p className="text-zinc-600">{userInfo.address}</p>
                   )}
                   {userInfo.email && (
-                    <p className="text-zinc-400">{userInfo.email}</p>
+                    <p className="text-zinc-600">{userInfo.email}</p>
                   )}
                 </CardWrapper>
               </div>
@@ -52,11 +49,11 @@ export default async function Profile() {
                 >
                   {userInfo.experience.map((experience) => (
                     <div key={experience.id}>
-                      <p className="mt-4 text-lg font-semibold">
+                      <p className="mt-4 text-lg font-semibold" >{experience.role}</p>
+                      <p className="text-zinc-900 mt-2" >
                         {experience.companyName}
                       </p>
-                      <p className="text-zinc-400">{experience.role}</p>
-                      <p className="text-zinc-400">
+                      <p className="text-zinc-600 mt-2">
                         {new Date(experience.startDate).toLocaleDateString()}-
                         {new Date(experience.endDate).toLocaleDateString()}
                       </p>
@@ -69,20 +66,18 @@ export default async function Profile() {
                     actionLabel="Añadir Estudios"
                     href="/studies-update"
                   >
-                    <span className=" mt-4 bg-zinc-100 px-2 text-sm self-start">
-                      Superiores
-                    </span>
+
                     {userInfo.studies.map((study) => (
                       <div key={study.id}>
-                        <p className="text-lg">
-                          Titulo:
+                        <p className="mt-2 text-lg font-semibold">
+                           
                           {study.degreeName}
                         </p>
-                        <p className="text-zinc-400">
-                          Orientacion:
+                        <p className="text-zinc-600 mt-2">
+                          
                           {study.degreeType}
                         </p>
-                        <p className="text-zinc-400">
+                        <p className="text-zinc-600 mt-2">
                           {new Date(study.startDate).toLocaleDateString()}-
                           {new Date(study.endDate).toLocaleDateString()}
                         </p>

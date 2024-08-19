@@ -10,7 +10,7 @@ export async function OfferCardList() {
         <h1 className="r px-3 text-2xl font-bold text-zinc-900">
           Mis Ofertas
         </h1>
-        <p>No tienes ofertas creadas.</p>
+        <p className="px-3 mt-5">Aún no tienes ofertas creadas.</p>
       </div>
     );
   }

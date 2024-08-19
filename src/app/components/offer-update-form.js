@@ -41,10 +41,10 @@ export function OfferUpdateForm({companies}) {
       </BaseSelect>
 
       <BaseSelect name="salary" label="Salario Anual">
-        <option value="menos-de-12000">Menos de 12.000€</option>
-        <option value="entre-12000-y-16000">Entre 12.000€ y 16.000€</option>
-        <option value="entre-16000-y-20000">Entre 16.000€ y 20.000€</option>
-        <option value="mas-de-20000">Más de 20.000€</option>
+        <option value="menos-de-16000">Menos de 16.000€</option>
+        <option value="entre-16000-y-25000">Entre 16.000€ y 25.000€</option>
+        <option value="entre-25000-y-35000">Entre 25.000€ y 35.000€</option>
+        <option value="mas-de-35000">Más de 35.000€</option>
       </BaseSelect>
 
       <label htmlFor="province" className="mt-3 block">

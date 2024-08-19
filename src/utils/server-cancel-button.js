@@ -1,12 +1,11 @@
 import prisma from "@/app/db";
-import { redirect } from "next/navigation";
 import { serverValidateAuth } from "../utils/server-validate-auth";
 
 export async function cancelButtonOffer() {
   const user = await serverValidateAuth();
 
   if (!user) {
-    redirect("api/auth/signin")
+    return []
   }
 
   const userAppliedOffers = await prisma.jobOffer.findMany({
@@ -22,7 +21,7 @@ export async function cancelButtonOffer() {
     },
   });
 
-  console.log("USUARIOS QUE APLICARON:", userAppliedOffers )
+  console.log("USUARIOS QUE APLICARON:", userAppliedOffers);
 
   const userAppliedOffersIds = userAppliedOffers.map((offer) => offer.id);
 

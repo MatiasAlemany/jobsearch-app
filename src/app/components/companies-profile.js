@@ -17,11 +17,11 @@ export function CompaniesProfile({ userInfo }) {
         >
           {userInfo.companies.map((company) => (
             <div key={company.id}>
-              <p className="mt-4 text-lg font-semibold underline">
+              <p className="mt-4 text-lg font-semibold">
                 {company.name}
               </p>
               {company.address && (
-                <p className=" text-zinc-400">{company.address}</p>
+                <p className=" text-zinc-600 mt-2">{company.address}</p>
               )}
             </div>
           ))}

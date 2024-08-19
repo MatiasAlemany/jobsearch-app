@@ -8,9 +8,9 @@ const workTimeLabels = {
 };
 
 const contractTypeLabels = {
-  indefinite: "Permanent",
-  fixed: "Fixed-Term",
-  formation: "Training"
+  indefinite: "Permanente",
+  fixed: "Temporal",
+  formation: "Practicas"
 };
 
 export async function JobCard({offer}) {
@@ -35,7 +35,7 @@ export async function JobCard({offer}) {
                   <p className="mt-2 text-sm text-stone-500">
                     {offer.province} | {contractTypeLabels[offer.contract]} |  {workTimeLabels[offer.workTime]} | {offer.salary}
                   </p>
-                  <JobRequestDialog offer={offer} userAppliedOffersIds={userAppliedOffersIds}/>
+                  <JobRequestDialog offer={offer} userAppliedOffersIds={userAppliedOffersIds || []}/>
                 </div>
               </div>
     )

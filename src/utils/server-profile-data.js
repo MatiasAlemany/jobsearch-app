@@ -2,7 +2,7 @@
 import prisma from "@/app/db";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/utils/authOptions";
 
 export async function getProfileData(){
   const session = await getServerSession(authOptions);
